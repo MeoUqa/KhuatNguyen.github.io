@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm Mạng & Linux</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Bài kiểm tra trắc nghiệm</h1>
+        <div id="question-card">
+            <div id="question-number"></div>
+            <p id="question-text"></p>
+            <div id="answer-buttons" class="btn-grid">
+                </div>
+        </div>
+        <div class="controls">
+            <button id="next-btn" class="hide">Câu tiếp theo (Enter)</button>
+        </div>
+        <div id="result-screen" class="hide">
+            <h2>Kết quả của bạn:</h2>
+            <p id="score-text"></p>
+            <div id="review-section">
+                <h3>Xem lại các câu hỏi:</h3>
+                <div id="questions-review">
+                    </div>
+            </div>
+            <button id="restart-btn">Làm lại</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
