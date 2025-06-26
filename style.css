@@ -1,0 +1,249 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0f2f7; /* Màu nền nhẹ nhàng */
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.quiz-container {
+    background-color: #ffffff;
+    padding: 35px 45px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+#question-card {
+    border: 1px solid #cce7ee;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    background-color: #f8fcfd;
+    text-align: left;
+}
+
+#question-number {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#question-text {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mặc định 1 cột */
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-grid button {
+    display: flex; /* Dùng flex để căn chỉnh nội dung */
+    align-items: center;
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #a7d9ee;
+    border-radius: 8px;
+    background-color: #e6f7ff;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #0056b3;
+    text-align: left;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-grid button:hover:not([disabled]) {
+    background-color: #cceeff;
+    border-color: #87ceeb;
+    transform: translateY(-2px);
+}
+
+.btn-grid button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* Kiểu cho đáp án đúng/sai */
+.btn-grid button.correct {
+    background-color: #d4edda; /* Light green */
+    border-color: #28a745; /* Green */
+    color: #155724; /* Darker green text */
+    pointer-events: none; /* Không cho click lại */
+}
+
+.btn-grid button.wrong {
+    background-color: #f8d7da; /* Light red */
+    border-color: #dc3545; /* Red */
+    color: #721c24; /* Darker red text */
+    pointer-events: none; /* Không cho click lại */
+}
+
+/* Vô hiệu hóa nút khi đã chọn */
+.btn-grid button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#next-btn, #restart-btn {
+    padding: 14px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.15em;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+#next-btn:hover, #restart-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#result-screen {
+    margin-top: 40px;
+}
+
+#result-screen h2 {
+    color: #28a745;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+#score-text {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.hide {
+    display: none;
+}
+
+/* Để căn chỉnh số thứ tự và chữ cái A,B,C,D */
+.option-label {
+    margin-right: 15px;
+    font-weight: bold;
+    min-width: 25px; /* Để giữ khoảng cách nhất quán */
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .btn-grid {
+        grid-template-columns: 1fr 1fr; /* 2 cột trên màn hình lớn hơn */
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 25px 20px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    #question-text {
+        font-size: 1.1em;
+    }
+    .btn-grid button {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+    #next-btn, #restart-btn {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
+
+#review-section {
+    margin-top: 40px;
+    text-align: left;
+    border-top: 1px solid #cce7ee;
+    padding-top: 20px;
+}
+
+#review-section h3 {
+    font-size: 1.6em;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.question-review-item {
+    background-color: #f8fcfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+}
+
+.question-review-item p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.question-review-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.question-review-item ul li {
+    padding: 8px 0;
+    font-size: 1em;
+    color: #555;
+    display: flex;
+    align-items: flex-start;
+}
+
+.question-review-item ul li .option-label-review {
+    font-weight: bold;
+    margin-right: 10px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.question-review-item ul li.correct-answer {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.question-review-item ul li.your-answer-wrong {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.question-review-item ul li.your-answer-wrong .option-label-review {
+    color: #dc3545;
+}
+
+.question-review-item ul li.correct-answer .option-label-review {
+    color: #28a745;
+}
